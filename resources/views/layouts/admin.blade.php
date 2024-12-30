@@ -208,9 +208,10 @@
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/vendors.min.js') }}"></script>
 
-        @stack('scripts') <!-- Définir une stack pour les scripts -->
+
 
         <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+        @stack('scripts') <!-- Définir une stack pour les scripts -->
         @livewireScripts
     </body>
 </html>
