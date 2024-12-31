@@ -226,10 +226,12 @@
         </section>
         <!-- end section -->
 
+        @if (!is_null($article))
+
 
         @livewire('comments',['post' => $article]) <!-- Include the Livewire component -->
 
-
+        @endif
         <section class="bg-dark-gray" style="    padding-top: 5px; padding-bottom: 5px;"></section>
         <!-- end section -->
 
