@@ -226,7 +226,7 @@
         </section>
         <!-- end section -->
 
-        @if (!is_null($article))
+        @if ($article instanceof App\Models\Post)
 
 
         @livewire('comments',['post' => $article]) <!-- Include the Livewire component -->
