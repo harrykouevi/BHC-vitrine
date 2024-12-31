@@ -74,34 +74,49 @@
                             </div>
                         </div>
                         <div class="col-auto col-xl-3 col-lg-2 text-end md-pe-0">
-                            <div class="header-icon">
-                                <div class="header-search-icon icon">
-                                    <a href="#" class="search-form-icon header-search-form"><i class="feather icon-feather-search"></i></a>
-                                    <!-- start search input -->
-                                    <div class="search-form-wrapper">
-                                        <button title="Close" type="button" class="search-close">×</button>
-                                        <form id="search-form" role="search" method="get" class="search-form text-left" action="search-result.html">
-                                            <div class="search-form-box">
-                                                <h2 class="text-dark-gray text-center fw-600 mb-4 ls-minus-1px">What are you looking for?</h2>
-                                                <input class="search-input" id="search-form-input5e219ef164995" placeholder="Enter your keywords..." name="s" value="" type="text" autocomplete="off">
-                                                <button type="submit" class="search-button">
-                                                    <i class="feather icon-feather-search" aria-hidden="true"></i>
-                                                </button>
-                                            </div>
-                                        </form>
+                            <div class="col-auto  text-end md-pe-0">
+                                <div class="header-icon">
+                                    <div class="header-search-icon icon">
+                                        <a href="#" class="search-form-icon header-search-form"><i class="feather icon-feather-search"></i></a>
+                                        <!-- start search input -->
+                                        <div class="search-form-wrapper">
+                                            <button title="Close" type="button" class="search-close">×</button>
+                                            <form id="search-form" role="search" method="get" class="search-form text-left" action="search-result.html">
+                                                <div class="search-form-box">
+                                                    <h2 class="text-dark-gray text-center fw-600 mb-4 ls-minus-1px">What are you looking for?</h2>
+                                                    <input class="search-input" id="search-form-input5e219ef164995" placeholder="Enter your keywords..." name="s" value="" type="text" autocomplete="off">
+                                                    <button type="submit" class="search-button">
+                                                        <i class="feather icon-feather-search" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- end search input -->
                                     </div>
-                                    <!-- end search input -->
+                                    <div class="header-button ms-20px d-none d-xl-inline-block">
+                                        <a href="" class="btn btn-rounded btn-transparent-light-gray border-1 btn-medium btn-switch-text text-transform-none">
+                                            <span>
+                                                <span class="btn-double-text fw-600" data-text="Free consultation">Consultation gratuite</span>
+                                                <span><i class="fa-regular fa-envelope"></i></span>
+                                            </span>
+                                        </a>
+                                    </div>
+
                                 </div>
-                                <div class="header-button ms-20px d-none d-xl-inline-block">
-                                    <a href="" class="btn btn-rounded btn-transparent-light-gray border-1 btn-medium btn-switch-text text-transform-none">
-                                        <span>
-                                            <span class="btn-double-text fw-600" data-text="Free consultation">Consultation gratuite</span>
-                                            <span><i class="fa-regular fa-envelope"></i></span>
-                                        </span>
-                                    </a>
+                            </div>
+                            <div class="col-auto  text-end md-pe-0">
+                                <div class="header-icon">
+                                    <div class="header-search-icon icon">
+                                        <a href="{{ route('admin') }}" class=""   data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="<span class=tooltip-title>Connexion (Administrateur)</span>"><span>
+                                            <span class="" ><i class="fa fa-sign-in"></i></span>
+                                        </span></a>
+
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </nav>
                 <!-- end navigation -->

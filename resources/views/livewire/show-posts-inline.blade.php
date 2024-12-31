@@ -15,7 +15,7 @@
                     <td>{{ $post->id }}</td>
                     <td>{{ $post->title }}</td>
                     <td>
-                        <a href="{{ route('admin.articles.show', $post->id) }}" class="btn btn-info">Voir</a>
+                        <a href="{{ route('blogs.show', $post->id) }}" class="btn btn-info">Voir</a>
                         <a href="{{ route('admin.articles.edit', $post->id) }}" class="btn btn-warning">Modifier</a>
 
                         @livewire('button-component',['articleId' => $post->id]) <!-- Include your Livewire component -->

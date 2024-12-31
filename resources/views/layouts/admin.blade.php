@@ -66,30 +66,13 @@
                             <span class="navbar-toggler-line"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav fw-600">
-                                <li class="nav-item"><a href="demo-accounting.html" class="nav-link">Home</a></li>
-                                <li class="nav-item"><a href="demo-accounting-company.html" class="nav-link">Company</a></li>
-                                <li class="nav-item dropdown dropdown-with-icon-style02">
-                                    <a href="demo-accounting-services.html" class="nav-link">Services</a>
-                                    <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a href="demo-accounting-services-details.html"><img src="{{ asset('images/demo-accounting-company-icon02.svg') }}" alt="">Corporate finance</a></li>
-                                        <li><a href="demo-accounting-services-details.html"><img src="{{ asset('images/demo-accounting-company-icon03.svg') }}" alt="">Financial services</a></li>
-                                        <li><a href="demo-accounting-services-details.html"><img src="{{ asset('images/demo-accounting-company-icon-04.svg') }}" alt="">Online consulting</a></li>
-                                        <li><a href="demo-accounting-services-details.html"><img src="{{ asset('images/demo-accounting-company-icon-05.svg') }}" alt="">Investment consulting</a></li>
-                                        <li><a href="demo-accounting-services-details.html"><img src="{{ asset('images/demo-accounting-company-icon-06.svg') }}" alt="">Banking and financing</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a href="demo-accounting-process.html" class="nav-link">Process</a></li>
-                                <li class="nav-item"><a href="demo-accounting-news.html" class="nav-link">News</a></li>
-                                <li class="nav-item"><a href="demo-accounting-contact.html" class="nav-link">Contact</a></li>
-                            </ul>
+
                         </div>
                     </div>
                     <div class="col-auto col-lg-2 text-end d-none d-sm-flex">
                         <div class="header-icon">
                             <div class="header-button">
-                                <a href="demo-accounting-contact.html" class="btn btn-small btn-rounded btn-base-color btn-box-shadow">Let's discuss</a>
+                                <a href="{{ route('accueil') }}" class="btn btn-small btn-rounded btn-base-color btn-box-shadow">Sortir</a>
                             </div>
                         </div>
                     </div>

@@ -13,6 +13,7 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "laravel/ui": "^4.6",
         "livewire/livewire": "^3.5",
         "synio/laravel-gmail-service-account-mail-driver": "^0.2.0",
         "tinify/tinify": "^1.6"

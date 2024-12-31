@@ -23,7 +23,7 @@
 
                 <div class="col-12">
                     <label class="mb-10px">Contenu</label>
-                    <textarea class="border-radius-4px textarea-small" rows="5" cols="5" wire:model="content" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                    <textarea class="border-radius-4px textarea-small" rows="5" cols="5" wire:model="content" placeholder="Notes about your order, e.g. special notes for delivery." id="summernote"></textarea>
                     @error('content') <span class="error">{{ $message }}</span> @enderror
                 </div>
 

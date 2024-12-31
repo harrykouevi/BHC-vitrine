@@ -42,7 +42,7 @@
                                 <span><i class="text-dark-gray feather icon-feather-folder"></i><a href="blog-grid.html">Creative</a></span>
                             </div>
 
-                            <h5 class="text-dark-gray fw-600 w-80 sm-w-100 mb-6">{{ $article->title}}</h5>
+                            <h5 class="text-dark-gray fw-600 w-80 sm-w-100 mb-6">{{ $article->title ?? 'Titre indisponible'}}</h5>
                             <div class="p-9 border-radius-5px bg-dark-gray blockquote-style-01 mb-6">
                                 <!-- start blockquote -->
                                 <i class="bi bi-chat-quote float-start me-30px xs-me-20px text-gradient-pink-orange icon-extra-double-large xs-icon-double-large"></i>
@@ -52,7 +52,7 @@
                                 </blockquote>
                                 <!-- end blockquote -->
                             </div>
-                            <p>{{ $article->content}}</p>
+                            <p>{{ $article->content ?? 'contenu indisponible'}}</p>
                             <blockquote class="alt-font border-4 border-start border-color-base-color text-dark-gray fw-500 ps-40px mt-7 mb-7 ms-60px lg-ms-30px sm-ms-0 lg-ps-30px">
                                 <p>Tomorrow is the most important thing in life. Comes into us at midnight very clean. It's perfect when it arrives and it puts itself in our hands. It hopes we've learned something from yesterday.</p>
                                 <footer class="fs-14 fw-600 text-base-color d-inline-block text-uppercase">John Wayne</footer>

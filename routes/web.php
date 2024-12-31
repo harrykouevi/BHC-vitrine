@@ -12,6 +12,8 @@ use App\Mail\ContactMail; // Make sure to import your Mailable class
 use App\Services\PostService;
 use Google\Client;
 use Google\Service\Gmail;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,12 @@ use Google\Service\Gmail;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Auth::routes();
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login') ;
 
 Route::get('/', function () {
     $featuredPosts = ( new Postservice ())->getFeaturedPosts();
