@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="fr">
     <head>
-        <title>Business Help Conulting - Admin - @yield('title')</title>
+        <title>Business Help Consulting - Admin - @yield('title')</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="author" content="ThemeZaa">
