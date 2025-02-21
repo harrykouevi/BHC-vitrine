@@ -192,7 +192,7 @@
                         </div>
                         <!-- end divider -->
                         <!-- start copyright -->
-                        <div class="col-lg-5 pt-35px pb-35px md-pt-0 order-2 order-lg-1 text-center text-lg-start last-paragraph-no-margin"><p>&copy; Copyright © 2024 <a href="" target="_blank" class="text-dark-gray fw-600 text-decoration-line-bottom">Business Help Conulting</a></p></div>
+                        <div class="col-lg-5 pt-35px pb-35px md-pt-0 order-2 order-lg-1 text-center text-lg-start last-paragraph-no-margin"><p>&copy; Copyright © 2024 <a href="" target="_blank" class="text-dark-gray fw-600 text-decoration-line-bottom">Business Help Consulting</a></p></div>
                         <!-- end copyright -->
                         <!-- start footer menu -->
                         <div class="col-lg-7 pt-35px pb-35px md-pt-25px md-pb-5px order-1 order-lg-2 text-center text-lg-end">
