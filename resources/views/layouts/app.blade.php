@@ -54,7 +54,7 @@
                             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                                 <ul class="navbar-nav">
                                     <li class="nav-item"><a href="{{ route('accueil') }}" class="nav-link">Accueil</a></li>
-                                    <li class="nav-item"><a href="#" class="nav-link">A propos</a></li>
+                                    <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">A propos</a></li>
                                     <li class="nav-item dropdown dropdown-with-icon-style02">
                                         <a href="#" class="nav-link">Services</a>
                                         <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
