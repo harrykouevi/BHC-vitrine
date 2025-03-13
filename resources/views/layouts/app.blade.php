@@ -94,7 +94,7 @@
                                         <!-- end search input -->
                                     </div>
                                     <div class="header-button ms-20px d-none d-xl-inline-block">
-                                        <a href="" class="btn btn-rounded btn-transparent-light-gray border-1 btn-medium btn-switch-text text-transform-none">
+                                        <a href=" {{ route('contact') }}#formulaire" class="btn btn-rounded btn-transparent-light-gray border-1 btn-medium btn-switch-text text-transform-none">
                                             <span>
                                                 <span class="btn-double-text fw-600" data-text="Free consultation">Consultation gratuite</span>
                                                 <span><i class="fa-regular fa-envelope"></i></span>
@@ -116,7 +116,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </nav>
                 <!-- end navigation -->
@@ -184,7 +183,9 @@
                             </div>
                         </div>
                         <!-- end footer column -->
-                    </div>
+                     
+
+                    
                     <div class="row justify-content-center align-items-center pt-2">
                         <!-- start divider -->
                         <div class="col-12">

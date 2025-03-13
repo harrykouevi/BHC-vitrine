@@ -77,7 +77,7 @@
         </section>
         <!-- end section -->
         <!-- start section -->
-        <section>
+        <section id="formulaire">
             <div class="container overlap-section overlap-section-three-fourth" data-anime='{"el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 800, "delay": 500, "staggervalue": 150, "easing": "easeOutQuad" }'>
                 <div class="row row-cols-md-1 justify-content-center">
                     <div class="col-xl-10">
