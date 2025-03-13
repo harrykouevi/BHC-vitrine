@@ -103,7 +103,14 @@
                                 </div>
                             </div>
                             <!-- start contact form -->
-                            <form  action="{{ route('send-message') }}"  method="post" class="contact-form-style-03">
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+
+                            <form  action="{{ route('contact.store') }}"  method="post" class="contact-form-style-03">
                                 @csrf
                                 <div class="row justify-content-center" data-anime='{ "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                                     <div class="col-md-6">

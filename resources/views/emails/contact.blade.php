@@ -9,6 +9,6 @@
     <p>Email : {{ $email }}</p>
     <p>Téléphone : {{ $phone }}</p> <!-- Include phone number -->
     <p>Sujet : {{ $subject }}</p> <!-- Include subject -->
-    <p>Message :</p>
+    <p>Message : {{ $message }}</p>
 </body>
 </html>

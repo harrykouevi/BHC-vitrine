@@ -2,14 +2,15 @@
 
 use App\Jobs\ProcessImage;
 use Illuminate\Support\Facades\Route;
-use Intervention\Image\Laravel\Facades\Image;
+// use Intervention\Image\Laravel\Facades\Image;
 
 use Illuminate\Http\Request;
-use App\Models\Article;
-
+// use App\Models\Article;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail; // Make sure to import your Mailable class
 use App\Services\PostService;
+// use App\Services\PostService;
 use Google\Client;
 use Google\Service\Gmail;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,7 @@ Route::get('/login', function () {
 })->name('login') ;
 
 Route::get('/', function () {
-    $featuredPosts = ( new Postservice ())->getFeaturedPosts();
+    $featuredPosts = ( new PostService ())->getFeaturedPosts();
     $posts = $featuredPosts->map(function($featuredPost){  return $featuredPost->post ; }) ;
 
     return view('welcome',['articles'=>$posts]);
@@ -99,7 +100,7 @@ Route::post('/contact-up', function (Request $request) {
         'name' => 'required|max:255',
         'email' => 'required|email',
         'phone' => 'required|max:15', // Add validation for phone number
-        'subject' => 'required|max:255', // Add validation for subject
+        'suject' => 'required|max:255', // Add validation for suject
         'message' => 'required|max:1000',
     ]);
     // Envoi de l'e-mail
@@ -151,3 +152,5 @@ $email->setRaw($rawMessage);
 
 // Inclure les routes admin
 require __DIR__ . '/admin.php';
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
