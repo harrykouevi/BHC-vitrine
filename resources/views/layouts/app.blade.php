@@ -20,13 +20,14 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('r/css/settings.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('r/css/layers.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('r/css/navigation.css') }}">
+        <link  rel="stylesheet" href="{{ asset('css/apropos.css') }}">
         <!-- style sheets and font icons  -->
         <link rel="stylesheet" href="{{ asset('css/vendors.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/icon.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
         <link rel="stylesheet" href="{{ asset('css/responsive.css') }}"/>
         @livewireStyles
-        @stack('css')
+        <!-- @yield('css') -->
 
     </head>
 
@@ -54,15 +55,15 @@
                             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                                 <ul class="navbar-nav">
                                     <li class="nav-item"><a href="{{ route('accueil') }}" class="nav-link">Accueil</a></li>
-                                    <li class="nav-item"><a href="#" class="nav-link">A propos</a></li>
+                                    <li class="nav-item"><a href="{{ route('A propos') }}" class="nav-link">A propos</a></li>
                                     <li class="nav-item dropdown dropdown-with-icon-style02">
                                         <a href="#" class="nav-link">Services</a>
                                         <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a href=""><i class="line-icon-Medal-2"></i>Business planning</a></li>
-                                            <li><a href=""><i class="line-icon-Archery-2"></i>Market research</a></li>
-                                            <li><a href=""><i class="line-icon-Financial"></i>Business consulting</a></li>
-                                            <li><a href=""><i class="line-icon-Money-Bag"></i>Audience analysis</a></li>
+                                            <li><a href="#"><i class="line-icon-Medal-2"></i>Business planning</a></li>
+                                            <li><a href="#"><i class="line-icon-Archery-2"></i>Market research</a></li>
+                                            <li><a href="#"><i class="line-icon-Financial"></i>Business consulting</a></li>
+                                            <li><a href="#"><i class="line-icon-Money-Bag"></i>Audience analysis</a></li>
                                         </ul>
                                     </li>
                                     <!-- <li class="nav-item"><a href="demo-corporate-customer-stories.html" class="nav-link">Testimonials</a></li>
@@ -74,23 +75,33 @@
                             </div>
                         </div>
                         <div class="col-auto col-xl-3 col-lg-2 text-end md-pe-0">
-                            <div class="col-auto  text-end md-pe-0">
-                                <div class="header-icon">
-                                    <div class="header-search-icon icon">
-                                        <a href="#" class="search-form-icon header-search-form"><i class="feather icon-feather-search"></i></a>
-                                        <!-- start search input -->
-                                        <div class="search-form-wrapper">
-                                            <button title="Close" type="button" class="search-close">×</button>
-                                            <form id="search-form" role="search" method="get" class="search-form text-left" action="search-result.html">
-                                                <div class="search-form-box">
-                                                    <h2 class="text-dark-gray text-center fw-600 mb-4 ls-minus-1px">What are you looking for?</h2>
-                                                    <input class="search-input" id="search-form-input5e219ef164995" placeholder="Enter your keywords..." name="s" value="" type="text" autocomplete="off">
-                                                    <button type="submit" class="search-button">
-                                                        <i class="feather icon-feather-search" aria-hidden="true"></i>
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
+    <div class="col-auto text-end md-pe-0">
+        <div class="header-icon">
+            <div class="header-search-icon icon">
+                <a href="{{ route('resultat') }}" class="search-form-icon header-search-form">
+                    <i class="feather icon-feather-search"></i>
+                </a>
+                <!-- start search input -->
+                <div class="search-form-wrapper">
+                    <button title="Close" type="button" class="search-close">×</button>
+                    <form action="{{ route('resultat') }}" method="GET" class="search-form text-left">
+    <div class="search-form-box">
+        <h2 class="text-dark-gray text-center fw-600 mb-4 ls-minus-1px">Quel service cherchez-vous ?</h2>
+        <input class="search-input" id="search-form-input5e219ef164995" placeholder="Entrez les mots clés..." name="query" type="text" autocomplete="off">
+        <button type="submit" class="search-button">
+            <i class="feather icon-feather-search" aria-hidden="true"></i>
+        </button>
+    </div>
+</form>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
                                         <!-- end search input -->
                                     </div>
                                     <div class="header-button ms-20px d-none d-xl-inline-block">

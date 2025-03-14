@@ -6,7 +6,7 @@ use Intervention\Image\Laravel\Facades\Image;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
-
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail; // Make sure to import your Mailable class
 use App\Services\PostService;
@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
+Route::match(['get', 'post'], '/', [HomeController::class, 'index']);
+
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login') ;
@@ -38,6 +40,18 @@ Route::get('/', function () {
 
     return view('welcome',['articles'=>$posts]);
 })->name('accueil');
+
+Route::get('/a-propos', function () {
+    return view('a-propos');
+})->name('A propos') ;
+Route ::post('/');
+Route::post('/resultat', function () {
+    return view('resultat');
+})->name('resultat') ;
+
+Route::get('/resultat', [SearchController::class, 'search'])->name('resultat');
+Route::post('/resultat', [SearchController::class, 'search'])->name('search.post');
+Route::get('/services', [SearchController::class, 'index']);
 
 
 Route::get('/contacts', function () {

@@ -660,7 +660,7 @@
                     <span class="ps-25px pe-25px mb-20px text-uppercase text-base-color fs-14 lh-42px fw-700 border-radius-100px bg-gradient-very-light-gray-transparent d-inline-block">Approche créative</span>
                     <h3 class="text-dark-gray fw-700 ls-minus-1px">BUSINESS HELP CONSULTING</h3>
                     <p class="w-80 xl-w-90 lg-w-100 mb-40px sm-mb-25px">Une initiative dédiée à l’accompagnement et au renforcement des capacités des jeunes entrepreneurs ou porteurs d'idée innovantes d'entreprises au Togo. Nous offrons des solutions sur mesure pour soutenir les porteurs de projets, de l'idée à la concrétisation et au développement de leurs futures entreprises.</p>
-                    <a href="" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-box-shadow btn-rounded me-25px xs-me-0">
+                    <a href="{{ route('A propos') }}" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-box-shadow btn-rounded me-25px xs-me-0">
                         <span>
                             <span class="btn-text">A propos de nous</span>
                             <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
