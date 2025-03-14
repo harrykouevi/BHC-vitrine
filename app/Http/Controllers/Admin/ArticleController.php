@@ -49,6 +49,7 @@ class ArticleController extends Controller
     //     $data = $request->validate([
     //         'title' => 'required|string|max:255',
     //         'content' => 'required|string',
+    
     //         'draft' => 'boolean',
     //     ]);
 

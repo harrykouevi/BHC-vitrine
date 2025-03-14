@@ -22,7 +22,7 @@ class ContactController extends Controller
         $data = $request->only('name', 'email', 'phone','subject', 'message');
 
         // Envoyer la notification à l'agence
-        Notification::route('mail', 'mfn0698@gmail.com')->notify(new ConsultationGratuiteNotification($data));
+        Notification::route('mail', 'bhelpconsulting@gmail.com')->notify(new ConsultationGratuiteNotification($data));
 
         return back()->with('success', 'Votre demande a été envoyée avec succès.');
     }
