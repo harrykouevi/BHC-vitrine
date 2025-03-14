@@ -119,16 +119,7 @@
                             <div class="cover-background p-7 border-radius-6px mb-60px md-mb-40px d-flex justify-content-end align-items-end sm-h-500px" style="background-image: url(https://via.placeholder.com/785x435)">
                                 <div class="opacity-light bg-gradient-regal-blue-transparent"></div>
                                 <div class="bg-white box-shadow-quadruple-large border-radius-4px w-50 lg-w-60 sm-w-100 overflow-hidden z-index-1">
-                                    <div class="p-40px lg-p-30px last-paragraph-no-margin">
-                                        <span class="fs-24 ls-minus-05px alt-font text-dark-gray fw-700 mb-10px d-block">@if (isset($services) && !$services->isEmpty())
-    @foreach ($services as $service)
-        {{ $service->description}}
-    @endforeach
-@elseif (isset($services))
-    Aucun service trouvé.
-@endif</span>
-        
-                                    </div>
+                                    
                                     <!-- <div class="bg-dark-gray p-15px text-center">
                                         <a href="demo-corporate-contact.html" class="text-white text-white-hover fw-500"><i class="feather icon-feather-mail me-10px"></i>Talk with our team</a>
                                     </div> -->
