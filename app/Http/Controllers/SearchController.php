@@ -44,7 +44,8 @@ class SearchController extends Controller
             // Si des mots-clés sont fournis, filtrer les résultats
             if (!empty($searchTerms)) {
                 foreach ($searchTerms as $term) {
-                    $query->where(function ($q) use ($term) {
+                    // Recherche chaque terme dans les champs nom, description et caracteristique
+                    $query->orWhere(function ($q) use ($term) {
                         $q->where('nom', 'LIKE', "%{$term}%")
                           ->orWhere('description', 'LIKE', "%{$term}%")
                           ->orWhere('caracteristique', 'LIKE', "%{$term}%");
@@ -52,7 +53,7 @@ class SearchController extends Controller
                 }
             }
 
-            return $query->orderBy('nom', 'asc')
+            return $query->orderBy('nom')
                          ->paginate(10)
                          ->appends(['keywords' => implode(' ', $searchTerms)]);
         });

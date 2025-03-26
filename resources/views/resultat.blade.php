@@ -20,24 +20,37 @@
 </section>
 <!-- end page title -->
 
-<!-- start section -->
-{{-- <div class="container mt-4"> --}}
-    <!-- Formulaire de recherche -->
-    {{-- <form action="{{ route('resultat') }}" method="GET" class="mb-4">
-        <div class="input-group">
-            <input type="text" name="keywords" value="{{ $keywords }}" class="form-control" placeholder="Rechercher un service...">
-            <button type="submit" class="btn btn-primary">Rechercher</button>
-        </div>
-    </form> --}}
-
-    {{-- @if (isset($message))
-        <p class="text-center">{{ $message }}</p>
-    @endif
-</div> --}}
-<!-- end section -->
 
 <!-- start section -->
 <section id="down-section">
+    @extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <h1>Résultats de la recherche</h1>
+
+        @if($services->isEmpty())
+            <p>{{ $message ?? 'Aucun résultat trouvé.' }}</p>
+        @else
+            <ul>
+                @foreach ($services as $service)
+                    <li>
+                        <strong>{{ $service->nom }}</strong><br>
+                        <p>{{ $service->description }}</p>
+                        <p><em>{{ $service->caracteristique }}</em></p>
+                    </li>
+                @endforeach
+            </ul>
+
+            <div class="pagination">
+                {{ $services->links() }}
+            </div>
+
+            <p>{{ $totalResults }} résultat(s) trouvé(s) pour « {{ $keywords }} ».</p>
+        @endif
+    </div>
+@endsection
+
     <div class="container">
         <div class="row">
             <div class="col-lg-4 pe-5 order-2 order-lg-1 lg-pe-3 md-pe-15px" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>

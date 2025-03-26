@@ -12,6 +12,7 @@ use App\Services\PostService;
 use Google\Client;
 use Google\Service\Gmail;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\BlogController;
 
 
 /*
@@ -55,6 +56,16 @@ Route::get('/services', [SearchController::class, 'index']);
 Route::get('/contacts', function () {
     return view('contactus');
 })->name('contact');
+
+
+//Route pour les crud
+
+Route::resource('blogs', BlogController::class);
+//affichage et gestion des blogs
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'is_admin'])->group(function () {
+    Route::resource('blogs', BlogController::class);
+});
+
 
 // Routes pour les blogs
 Route::get('/blogs', function () {
