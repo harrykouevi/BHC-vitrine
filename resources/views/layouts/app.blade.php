@@ -69,7 +69,7 @@
                                     <!-- <li class="nav-item"><a href="demo-corporate-customer-stories.html" class="nav-link">Testimonials</a></li>
                                     <li class="nav-item"><a href="demo-corporate-pricing.html" class="nav-link">Pricing</a></li>-->
 
-                                    <li class="nav-item"><a href="{{ route('blogs.index') }}" class="nav-link">Blog</a></li>
+                                    <li class="nav-item"><a href="{{ route('blogs') }}" class="nav-link">Blog</a></li>
                                     <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                                 </ul>
                             </div>
@@ -85,17 +85,16 @@
                 <div class="search-form-wrapper">
                     <button title="Close" type="button" class="search-close">×</button>
                     <form action="{{ route('resultat') }}" method="GET" class="search-form text-left">
-    <div class="search-form-box">
-        <h2 class="text-dark-gray text-center fw-600 mb-4 ls-minus-1px">Quel service cherchez-vous ?</h2>
-        <input class="search-input" id="search-form-input5e219ef164995" placeholder="Entrez les mots clés..." name="query" type="text" autocomplete="off">
-        <button type="submit" class="search-button">
-            <i class="feather icon-feather-search" aria-hidden="true"></i>
-        </button>
-    </div>
-</form>
-
-
-
+                        <div class="search-form-box">
+                            <h2 class="text-dark-gray text-center fw-600 mb-4 ls-minus-1px">Quel service cherchez-vous ?</h2>
+                            <input class="search-input" id="search-form-input5e219ef164995" placeholder="Entrez les mots clés..." name="keywords" type="text" autocomplete="off" value="{{ old('keywords', $keywords ?? '') }}">
+                            <button type="submit" class="search-button">
+                                <i class="feather icon-feather-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
                 </div>
             </div>
         </div>
@@ -162,7 +161,7 @@
                             <ul>
                                 <li><a href="">Qui sommes-nous</a></li>
                                 <li><a href="">Nos services</a><div class="bg-dark-gray fw-600 text-white lh-22 text-uppercase border-radius-30px ps-10px pe-10px fs-10 ms-10px d-inline-block align-middle">Hot</div></li>
-                                <li><a href="{{ route('blogs.index') }}">Blogs</a></li>
+                                <li><a href="{{ route('blogs') }}">Blogs</a></li>
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
                         </div>

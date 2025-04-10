@@ -3,7 +3,7 @@
 use App\Jobs\ProcessImage;
 use Illuminate\Support\Facades\Route;
 use Intervention\Image\Laravel\Facades\Image;
-
+use App\Http\Controllers\Admin\BlogController;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Http\Controllers\SearchController;
@@ -13,6 +13,7 @@ use App\Services\PostService;
 use Google\Client;
 use Google\Service\Gmail;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ServiceController;
 
 
 /*
@@ -28,11 +29,16 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::match(['get', 'post'], '/', [HomeController::class, 'index']);
+// Route::match(['get', 'post'], '/', [HomeController::class, 'index']);
 
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login') ;
+//RECHERCHE
+
+
+// Route::get('/search', [ServiceController::class, 'search'])->name('search');
+
 
 Route::get('/', function () {
     $featuredPosts = ( new Postservice ())->getFeaturedPosts();
@@ -147,6 +153,35 @@ $email->setRaw($rawMessage);
    return back()->with('success', 'Votre message a été envoyé avec succès !');
 
 })->name('send-message');
+
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    // Afficher la liste des articles
+    Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
+
+    // Afficher le formulaire pour créer un nouvel article
+    Route::get('blog/create', [BlogController::class, 'create'])->name('blog.create');
+
+    // Enregistrer un nouvel article
+    Route::post('blog', [BlogController::class, 'store'])->name('blog.store');
+
+    // Afficher le formulaire pour éditer un article
+    Route::get('blog/{blog}/edit', [BlogController::class, 'edit'])->name('blog.edit');
+
+    // Mettre à jour un article existant
+    Route::put('blog/{blog}', [BlogController::class, 'update'])->name('blog.update');
+
+    // Supprimer un article
+    Route::delete('blog/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
+});
+// Route pour afficher la liste des blogs
+Route::get('/blogs', [BlogController::class, 'toutLesBlogs'])->name('blogs');
+
+// Route pour afficher un article spécifique
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+
+
+
 
 /*
 |--------------------------------------------------------------------------

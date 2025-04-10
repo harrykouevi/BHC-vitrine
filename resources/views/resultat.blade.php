@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @push('css')
-    <!-- style sheets and font icons  -->
     <link rel="stylesheet" href="{{ asset('css/corporate.css') }}" />
 @endpush
 
@@ -13,13 +12,6 @@
         <div class="row extra-very-small-screen align-items-center">
             <div class="col-lg-5 col-sm-8 position-relative page-title-extra-small" data-anime='{ "el": "childs", "opacity": [0, 1], "translateX": [-30, 0], "duration": 800, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                 <h1 class="mb-20px xs-mb-20px text-white text-shadow-medium"><span class="w-30px h-2px bg-yellow d-inline-block align-middle position-relative top-minus-2px me-10px"></span>Nos services</h1>
-                <h2 class="text-white text-shadow-medium fw-500 ls-minus-2px mb-0">@if (isset($services) && !$services->isEmpty())
-    @foreach ($services as $service)
-        <p>{{ $service->nom }}</p>
-    @endforeach
-@elseif (isset($services))
-    <p>Aucun service trouvé.</p>
-@endif</h2>
             </div>
         </div>
     </div>
@@ -27,117 +19,60 @@
 <!-- end page title -->
 
 <!-- start section -->
+<div class="container mt-4">
+    <!-- Formulaire de recherche -->
+    <form action="{{ route('resultat') }}" method="GET" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="keywords" value="{{ $keywords }}" class="form-control" placeholder="Rechercher un service...">
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </div>
+    </form>
 
-@if (isset($message))
-    <p>{{ $message }}</p>
-@endif
-
-
-
+    @if (isset($message))
+        <p class="text-center">{{ $message }}</p>
+    @endif
+</div>
 <!-- end section -->
 
-            <!-- start section -->
-            <section id='down-section'>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 pe-5 order-2 order-lg-1 lg-pe-3 md-pe-15px" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                            <div class="bg-solitude-blue border-radius-6px p-45px lg-p-30px mb-25px">
-                                <span class="fs-19 alt-font text-dark-gray fw-700 mb-20px d-inline-block">caracteristique</span>
-                                <ul class="p-0 m-0 list-style-02 fw-500">
-                                    <li class="pb-10px mb-10px border-bottom border-color-transparent-dark"><a href="demo-corporate-services-details.html">@if (isset($services) && !$services->isEmpty())
-    @foreach ($services as $service)
-        {{ $service->caracteristique }}
-    @endforeach
-@elseif (isset($services))
-    Aucun service trouvé.
-@endif</a></li>
-                                   
-                                </ul>
-                            </div>
-                            <div class="bg-dark-gray border-radius-6px ps-35px pb-25px pt-25px mb-25px">
-                                <div class="feature-box feature-box-left-icon-middle">
-                                    <div class="feature-box-icon feature-box-icon-rounded w-65px h-65px lg-w-50px lg-h-50px me-20px lg-me-15px rounded-circle bg-base-color rounded-box">
-                                        <i class="bi bi-telephone-outbound icon-extra-medium text-white"></i>
-                                    </div>
-                                    <div class="feature-box-content last-paragraph-no-margin">
-                                        <span class="lh-22 mb-10px d-block text-white opacity-6 fw-300">Nous contacter</span>
-                                        <span class="text-white fs-20 fw-500 lh-22 d-block"><a href="tel:+12345678910">+228 92035012</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-solitude-blue border-radius-6px p-40px lg-p-30px">
-                                <!-- <span class="fs-19 alt-font text-dark-gray fw-700 mb-25px sm-mb-20px d-inline-block">Get a free consultation?</span> -->
-                                <div class="contact-form-style-01 mt-0">
-                                    <!-- start contact form -->
-                                    <!-- <form action="email-templates/contact-form.php" method="post">
-                                        <div class="position-relative form-group mb-20px">
-                                            <span class="form-icon"><i class="bi bi-emoji-smile"></i></span>
-                                            <input type="text" name="name" class="form-control border-white fs-16 box-shadow-large required" placeholder="votre nom" />
-                                        </div>
-                                        <div class="position-relative form-group mb-20px">
-                                            <span class="form-icon"><i class="bi bi-envelope"></i></span>
-                                            <input type="email" name="email" class="form-control border-white fs-16 box-shadow-large required" placeholder="votre adresse" />
-                                        </div> 
-                                        <div class="position-relative form-group form-textarea">
-                                            <span class="form-icon"><i class="bi bi-chat-square-dots"></i></span>
-                                            <textarea placeholder="votre message" name="comment" class="form-control border-white fs-16 box-shadow-large" rows="3"></textarea>
-                                            <input type="hidden" name="redirect" value="">
-                                            <button class="btn btn-small btn-round-edge btn-base-color btn-box-shadow mt-20px submit w-100 text-transform-none" type="submit">Soumettre</button>
-                                            <div class="form-results mt-20px d-none"></div>
-                                        </div>
-                                    </form> -->
-                                    <!-- end contact form -->  
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8 order-1 order-lg-2 md-mb-50px" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                            <h4 class="text-dark-gray fw-700 alt-font mb-20px d-block">@if (isset($services) && !$services->isEmpty())
-    @foreach ($services as $service)
-        {{ $service->nom }}
-    @endforeach
-@elseif (isset($services))
-    Aucun service trouvé.
-@endif</h4>
-                            <p>@if (isset($services) && !$services->isEmpty())
-    @foreach ($services as $service)
-        {{ $service->description }}
-    @endforeach
-@elseif (isset($services))
-    Aucun service trouvé.
-@endif</p>
-                            <img src="https://via.placeholder.com/785x435" class="mt-30px md-mt-15px mb-60px md-mb-40px border-radius-6px" alt="">
-                            <div class="row row-cols-1 row-cols-md-2 mb-30px md-mb-15px">
-                                <!-- <div class="col">
-                                    <span class="fs-24 ls-minus-05px alt-font text-dark-gray fw-700 mb-10px d-block">Strategic development</span>
-                                    <p class="w-90 sm-w-100">Lorem ipsum dolor sit amet conseetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                                <div class="col">
-                                    <span class="fs-24 alt-font text-dark-gray fw-700 mb-10px d-block">Grow your business</span>
-                                    <p class="w-90 sm-w-100">Lorem ipsum dolor sit amet conseetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div> -->
-                            </div>
-                            <div class="cover-background p-7 border-radius-6px mb-60px md-mb-40px d-flex justify-content-end align-items-end sm-h-500px" style="background-image: url(https://via.placeholder.com/785x435)">
-                                <div class="opacity-light bg-gradient-regal-blue-transparent"></div>
-                                <div class="bg-white box-shadow-quadruple-large border-radius-4px w-50 lg-w-60 sm-w-100 overflow-hidden z-index-1">
-                                    
-                                    <!-- <div class="bg-dark-gray p-15px text-center">
-                                        <a href="demo-corporate-contact.html" class="text-white text-white-hover fw-500"><i class="feather icon-feather-mail me-10px"></i>Talk with our team</a>
-                                    </div> -->
-                                </div>
-                            </div>
-                            <h4 class="text-dark-gray fw-700 alt-font mb-40px lg-mb-30px d-block">Les avantages de travailler avec nous</h4>
-                            
-                            <div class="row align-items-center justify-content-center g-0">
-                                <div class="col-12 d-block d-sm-flex align-items-center text-center text-sm-start">
-                                    <img src="https://via.placeholder.com/152x68" alt="" />
-                                    <div class="lh-28 last-paragraph-no-margin text-dark-gray ps-15px xs-ps-0 xs-mt-15px">
-                                        <p>"Économisez votre temps et vos efforts consacrés à trouver une solution. <a href="{{route('contact') }}" class="text-decoration-line-bottom fw-700 text-dark-gray">contact</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- start section -->
+<section id="down-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 pe-5 order-2 order-lg-1 lg-pe-3 md-pe-15px" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                <div class="bg-solitude-blue border-radius-6px p-45px lg-p-30px mb-25px">
+                    <span class="fs-19 alt-font text-dark-gray fw-700 mb-20px d-inline-block">Caractéristiques</span>
+                    <ul class="p-0 m-0 list-style-02 fw-500">
+                        @if ($services->isNotEmpty())
+                            @foreach ($services as $service)
+                                <li class="pb-10px mb-10px border-bottom border-color-transparent-dark">
+                                    {{ $service->caracteristique ?? 'Non spécifié' }}
+                                </li>
+                            @endforeach
+                        @else
+                            <li>Aucune caractéristique disponible.</li>
+                        @endif
+                    </ul>
                 </div>
-            </section>
-            <!-- end section -->
+            </div>
+            <div class="col-lg-8 order-1 order-lg-2 md-mb-50px" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                @if ($services->isNotEmpty())
+                    @foreach ($services as $service)
+                        <div class="mb-40px">
+                            <h4 class="text-dark-gray fw-700 alt-font mb-20px d-block">{{ $service->nom }}</h4>
+                            <p>{{ $service->description }}</p>
+                        </div>
+                    @endforeach
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center">
+                        {{ $services->links() }}
+                    </div>
+                @else
+                    <p>Aucun service disponible pour le moment.</p>
+                @endif
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end section -->
+
 @endsection
