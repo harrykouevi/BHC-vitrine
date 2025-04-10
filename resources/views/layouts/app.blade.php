@@ -2,7 +2,7 @@
 <html class="no-js" lang="fr">
 
     <head>
-        <title>Business Help Conulting - @yield('title')</title>
+        <title>Business Help Consulting - @yield('title')</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="author" content="ThemeZaa">
@@ -38,10 +38,10 @@
                 <nav class="navbar navbar-expand-lg header-light bg-white disable-fixed">
                     <div class="container-fluid">
                         <div class="col-auto col-xl-3 col-lg-2 me-lg-0 me-auto">
-                            <a class="navbar-brand_" href="demo-corporate.html" style="padding: 11px 0 !important;">
+                            <a class="navbar-brand_" href="{{url ('/')}}" style="padding: 11px 0 !important;">
                                 <img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/1732619577887-file.png') }}" alt="" class="default-logo" style="width: 220px !important;">
-                                {{-- <img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/demo-corporate-logo-black@2x.png') }}" alt="" class="alt-logo">
-                                <img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/demo-corporate-logo-black@2x.png') }}" alt="" class="mobile-logo"> --}}
+                                {{-- <img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/1732619577887-file.png') }}" alt="" class="alt-logo">
+                                <img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/1732619577887-file.png') }}" alt="" class="mobile-logo"> --}}
                             </a>
                         </div>
                         <div class="col-auto col-xl-6 col-lg-8 menu-order position-static">
@@ -127,12 +127,12 @@
             </div>
 
             <!-- start footer -->
-            <footer class="p-0 fs-16 border-top border-color-extra-medium-gray">
+            <footer class="p-0 fs-16 border-top border-color-extra-medium-gray" id="newsletters">
                 <div class="container">
                     <div class="row justify-content-center pt-6 sm-pt-40px">
                         <!-- start footer column -->
                         <div class="col-6 col-xl-3 col-lg-12 col-sm-6 last-paragraph-no-margin text-xl-start text-lg-center order-sm-1 lg-mb-50px sm-mb-30px">
-                            <a href="demo-corporate.html" class="footer-log mb-15px d-inline-block"><img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/demo-corporate-logo-black@2x.png') }}" alt=""></a>
+                            <a href="{{'/'}}" class="footer-log mb-15px d-inline-block"><img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/1732619577887-file.png') }}" alt=""></a>
                             <p class="lh-30 w-90 xl-w-100 mx-lg-auto mx-xl-0">Ensemble, passons de l’idée à une entreprise innovante pour un réel impact pour nous et nos communautés.</p>
                             <div class="elements-social social-icon-style-02 mt-20px xs-mt-15px">
                                 <ul class="medium-icon dark">
@@ -168,19 +168,37 @@
                         </div>
                         <!-- end footer column -->
                         <!-- start footer column -->
-
+                        <div class="col-6 col-xl-2 col-lg-3 col-sm-4 xs-mb-30px order-sm-5 order-lg-4">
+                            <span class="fs-17 fw-600 d-block text-dark-gray mb-5px">Cordonnées</span>
+                            <ul>
+                                <li><a href="demo-corporate-customer-stories.html">(+228) 92 03 50 12</a></li>
+                                <li><a href="demo-corporate-customer-stories.html">(+228) 22 50 21 16</li>
+                                <li><a href="demo-corporate-customer-stories.html"><a href="mailto:bhelpconsulting@gmail.com" class="text-decoration-line-bottom">bhelpconsulting@gmail.com </a></li>
+                                <li><a href="demo-corporate-customer-stories.html">Adigomé-Sagbado</a></li>
+                            </ul>
+                        </div>
                         <!-- end footer column -->
                         <!-- start footer column -->
                         <div class="col-xl-3 col-lg-3 col-sm-6 md-mb-50px sm-mb-30px xs-mb-0 order-sm-2 order-lg-5">
                             <span class="fs-17 fw-600 d-block text-dark-gray mb-5px">Newsletter</span>
                             <p class="lh-30 w-95 sm-w-100 mb-15px">Abonnez-vous à notre newsletter pour obtenir les dernières nouvelles et mises à jour!</p>
                             <div class="d-inline-block w-100 newsletter-style-02 position-relative">
-                                <form action="email-templates/subscribe-newsletter.php" method="post" class="position-relative">
+                           
+                              <form action="{{ route ('subscribe') }}#newsletters" method="post" class="position-relative">
+                              @csrf
                                     <input class="border-color-extra-medium-gray bg-transparent border-radius-4px w-100 form-control input-small pe-50px required" type="email" name="email" placeholder="Veuillez entrer votre adresse e-mail" />
                                     <input type="hidden" name="redirect" value="">
-                                    <button class="btn pe-20px submit lh-16" aria-label="submit"><i class="feather icon-feather-mail icon-small text-dark-gray"></i></button>
+                                    <button class="btn pe-20px  lh-16" aria-label="submit"><i class="feather icon-feather-mail icon-small text-dark-gray"></i></button>
                                     <div class="form-results border-radius-4px pt-5px pb-5px ps-15px pe-15px fs-14 lh-22 mt-10px w-100 text-center position-absolute d-none"></div>
-                                </form>
+                                    @error('email')
+                                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                    @enderror
+
+                                    {{-- Affichage du message de succès --}}
+                                    @if(session('success'))
+                                        <div class="alert alert-success mt-2">{{ session('success') }}</div>
+                                    @endif
+                                 </form>
                             </div>
                         </div>
                         <!-- end footer column -->
@@ -192,7 +210,7 @@
                         </div>
                         <!-- end divider -->
                         <!-- start copyright -->
-                        <div class="col-lg-5 pt-35px pb-35px md-pt-0 order-2 order-lg-1 text-center text-lg-start last-paragraph-no-margin"><p>&copy; Copyright © 2024 <a href="" target="_blank" class="text-dark-gray fw-600 text-decoration-line-bottom">Business Help Conulting</a></p></div>
+                        <div class="col-lg-5 pt-35px pb-35px md-pt-0 order-2 order-lg-1 text-center text-lg-start last-paragraph-no-margin"><p>&copy; Copyright © 2024 <a href="" target="_blank" class="text-dark-gray fw-600 text-decoration-line-bottom">Business Help Consulting</a></p></div>
                         <!-- end copyright -->
                         <!-- start footer menu -->
                         <div class="col-lg-7 pt-35px pb-35px md-pt-25px md-pb-5px order-1 order-lg-2 text-center text-lg-end">

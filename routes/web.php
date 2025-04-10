@@ -6,6 +6,8 @@ use Intervention\Image\Laravel\Facades\Image;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Commentaire;
+
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail; // Make sure to import your Mailable class
@@ -13,6 +15,10 @@ use App\Services\PostService;
 use Google\Client;
 use Google\Service\Gmail;
 use Illuminate\Support\Facades\Auth;
+
+use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\CommentaireController;
+
 
 
 /*
@@ -39,6 +45,18 @@ Route::get('/', function () {
     return view('welcome',['articles'=>$posts]);
 })->name('accueil');
 
+Route::get('/commentaires', [CommentaireController::class, 'index'])->name('commentaires.index');                           
+Route::post('/blogs.show', [CommentaireController::class, 'store'])->name('commentaire.store');
+
+Route::get('/blogs.show', function () {
+    
+    $commentaires = Commentaire::latest()->take(4)->get();;
+    return view('blog-single', compact('commentaires')  );
+})->name('blogs.show') ;
+
+Route::get('/a-propos', function () {
+    return view('aboutus');
+})->name('a-propos') ;
 
 Route::get('/contacts', function () {
     return view('contactus');
@@ -48,16 +66,18 @@ Route::get('/blogs', function () {
     return view('blog');
 })->name('blogs.index') ;
 
-Route::get('/blogs/{id}', function ($id) {
-    $post = new stdClass();
-    if (is_numeric($id)) {
-        $post = ( new Postservice ())->getPost($id);
-    }
-    $featuredPosts = ( new Postservice ())->getFeaturedPosts();
-    $posts = $featuredPosts->map(function($featuredPost){  return $featuredPost->post ; }) ;
+Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe');
 
-    return view('blog-single',['article'=>$post , 'articles'=>$posts ]);
-})->name('blogs.show');
+// Route::get('/blogs/single', function () {
+//     // // $post = new stdClass();
+//     // if (is_numeric($id)) {
+//     //     $post = ( new Postservice ())->getPost($id);
+//     // }
+//     // $featuredPosts = ( new Postservice ())->getFeaturedPosts();
+//     // $posts = $featuredPosts->map(function($featuredPost){  return $featuredPost->post ; }) ;
+
+//     return view('blog-single');
+// })->name('blogs.show');
 
 
 Route::get('/A7d3F9kL2qX1', function () {

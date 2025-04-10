@@ -159,10 +159,11 @@
                                          data-textAlign="['inherit','inherit','inherit','inherit']"
                                          data-paddingtop="[0,0,0,0]" data-paddingright="[75,70,65,60]"
                                          data-paddingbottom="[0,0,0,0]" data-paddingleft="[45,35,30,30]">
-                                        <a href="#"
+                                        <a href="{{ route('contact') }}#formulaire"
                                            class="btn btn-extra-large get-started-btn btn-rounded with-rounded btn-gradient-flamingo-amethyst-green btn-box-shadow">Réserver<span class="bg-white text-base-color"><i
                                                     class="fa-solid fa-arrow-right"></i></span></a>
-                                    </div>
+                                                   <p>Heure d' ouverture : 08 heures à 19 heures</p> 
+                                                </div>
                                     <!-- end button layer -->
                                 </div>
                                 <!-- end column layer -->
@@ -348,10 +349,11 @@
                                          data-textAlign="['inherit','inherit','inherit','inherit']"
                                          data-paddingtop="[0,0,0,0]" data-paddingright="[75,70,65,60]"
                                          data-paddingbottom="[0,0,0,0]" data-paddingleft="[45,35,30,30]">
-                                        <a href="#"
+                                        <a href="{{ route('contact') }}#formulaire"
                                            class="btn btn-extra-large get-started-btn btn-rounded with-rounded btn-gradient-flamingo-amethyst-green btn-box-shadow">Réserver<span class="bg-white text-base-color"><i
                                                     class="fa-solid fa-arrow-right"></i></span></a>
-                                    </div>
+                                   <p>Heure d' ouverture : 08 heures à 19 heures</p>
+                                                </div>
                                     <!-- end button layer -->
                                 </div>
                                 <!-- end column layer -->
@@ -1023,7 +1025,7 @@
             </div>
             <div class="row justify-content-center align-items-center mb-6 sm-mb-8" data-anime='{ "el": "childs", "translateY": [0, 0], "opacity": [0,1], "duration": 1200, "delay": 100, "staggervalue": 150, "easing": "easeOutQuad" }'>
                 <div class="col-12 position-relative ps-8 pe-8 lg-ps-15px lg-pe-15px">
-                    <div class="swiper magic-cursor testimonials-style-06" data-slider-options='{ "loop": true, "autoplay": { "delay": 4000, "disableOnInteraction": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "navigation": { "nextEl": ".swiper-button-next-nav", "prevEl": ".swiper-button-previous-nav", "effect": "fade" } }'>
+                    <div class="swiper magic-cursor testimonials-style-06" data-slider-options='{ "loop": true, "autoplay": { "delay": 30000, "disableOnInteraction": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "navigation": { "nextEl": ".swiper-button-next-nav", "prevEl": ".swiper-button-previous-nav", "effect": "fade" } }'>
                         <div class="swiper-wrapper">
                             <!-- start testimonial item -->
                             <div class="swiper-slide">
@@ -1390,7 +1392,7 @@
                         -->
 
                         <div class="pricing-footer ps-12 pe-12 pb-8 text-center">
-                            <a href="demo-corporate-pricing.html" class="btn btn-large btn-dark-gray btn-box-shadow btn-hover-animation-switch btn-round-edge w-100 text-transform-none mb-15px">
+                            <a href= "{{ route('contact') }}#formulaire"class="btn btn-large btn-dark-gray btn-box-shadow btn-hover-animation-switch btn-round-edge w-100 text-transform-none mb-15px">
                                 <span>
                                     <span class="btn-text">Réserver</span>
                                     <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
