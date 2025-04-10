@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('commentaires', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('Nom');
-            $table->string('Email');
-            $table->text('Commentaire');
-            $table->string('statut')->default('en attente'); // 'approuvé', 'rejeté'
+            $table->string('title');
+            $table->text('content');
+            $table->string('author');
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('commentaires');
+        Schema::dropIfExists('articles');
     }
 };

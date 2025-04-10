@@ -106,7 +106,8 @@
                                 <li class="pb-10px mb-10px border-bottom border-color-transparent-dark"><a href="demo-accounting-services-details.html">Online consulting</a><i class="feather icon-feather-arrow-right ms-auto"></i></li>
                                 <li class="pb-10px mb-10px border-bottom border-color-transparent-dark"><a href="demo-accounting-services-details.html">Investment consulting</a><i class="feather icon-feather-arrow-right ms-auto"></i></li>
                                 <li><a href="demo-accounting-services-details.html">Banking and financing</a><i class="feather icon-feather-arrow-right lh-32 ms-auto"></i></li>
-                            </ul>
+                                <li class="pb-10px mb-10px border-bottom border-color-transparent-dark text-dark-gray" ><a href="{{ route('admin.commentaires')}}">Commentaires<i class="feather icon-feather-arrow-right ms-auto"></i></li>
+
                         </div>
                         <div class="bg-dark-gray border-radius-6px ps-35px pb-25px pt-25px lg-ps-25px mb-25px">
                             <div class="feature-box feature-box-left-icon-middle">

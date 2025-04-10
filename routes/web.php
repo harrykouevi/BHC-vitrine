@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\CommentaireController;
 use App\Jobs\ProcessImage;
 use Illuminate\Support\Facades\Route;
 // use Intervention\Image\Laravel\Facades\Image;
@@ -9,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail; // Make sure to import your Mailable class
+use App\Models\commentaire;
 use App\Services\PostService;
 // use App\Services\PostService;
 use Google\Client;
@@ -154,3 +157,10 @@ $email->setRaw($rawMessage);
 require __DIR__ . '/admin.php';
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+//Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+
+Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
+
+
+
