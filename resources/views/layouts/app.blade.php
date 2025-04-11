@@ -87,14 +87,18 @@
                     <form action="{{ route('resultat') }}" method="GET" class="search-form text-left">
                         <div class="search-form-box">
                             <h2 class="text-dark-gray text-center fw-600 mb-4 ls-minus-1px">Quel service cherchez-vous ?</h2>
-                            <input class="search-input" id="search-form-input5e219ef164995" placeholder="Entrez les mots clés..." name="keywords" type="text" autocomplete="off" value="{{ old('keywords', $keywords ?? '') }}">
-                            <button type="submit" class="search-button">
-                                <i class="feather icon-feather-search" aria-hidden="true"></i>
-                            </button>
+                            <form action="{{ route('resultat') }}" method="GET">
+                                <input class="search-input" id="search-form-input5e219ef164995" placeholder="Entrez les mots clés..." name="query" type="text" autocomplete="off">
+                                <button type="submit" class="search-button">
+                                    <i class="feather icon-feather-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
                         </div>
-                    </form>
-                </div>
-                
+                        
+</form>
+
+
+
                 </div>
             </div>
         </div>
