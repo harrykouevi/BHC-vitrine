@@ -77,7 +77,7 @@
         </section>
         <!-- end section -->
         <!-- start section -->
-        <section>
+        <section id="formulaire">
             <div class="container overlap-section overlap-section-three-fourth" data-anime='{"el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 800, "delay": 500, "staggervalue": 150, "easing": "easeOutQuad" }'>
                 <div class="row row-cols-md-1 justify-content-center">
                     <div class="col-xl-10">
@@ -103,7 +103,14 @@
                                 </div>
                             </div>
                             <!-- start contact form -->
-                            <form  action="{{ route('send-message') }}"  method="post" class="contact-form-style-03">
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+
+                            <form  action="{{ route('contact.store') }}"  method="post" class="contact-form-style-03">
                                 @csrf
                                 <div class="row justify-content-center" data-anime='{ "opacity": [0,1], "duration": 600, "delay":0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                                     <div class="col-md-6">

@@ -55,22 +55,34 @@
                             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                                 <ul class="navbar-nav">
                                     <li class="nav-item"><a href="{{ route('accueil') }}" class="nav-link">Accueil</a></li>
-                                    <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">A propos</a></li>
-                                    <li class="nav-item"><a href="{{ route('A propos') }}" class="nav-link">A propos</a></li>
                                     <li class="nav-item dropdown dropdown-with-icon-style02">
-                                        <a href="#" class="nav-link">Services</a>
+                                        <a href="{{ route('accueil') }}/#" class="nav-link">A propos</a>
                                         <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a href="#"><i class="line-icon-Medal-2"></i>Business planning</a></li>
-                                            <li><a href="#"><i class="line-icon-Archery-2"></i>Market research</a></li>
-                                            <li><a href="#"><i class="line-icon-Financial"></i>Business consulting</a></li>
-                                            <li><a href="#"><i class="line-icon-Money-Bag"></i>Audience analysis</a></li>
+                                            <li><a href="{{ route('about') }}"><i class="line-icon-Medal-2"></i>A propos 1</a></li>
+                                            <li><a href="{{ route('A propos') }}"><i class="line-icon-Archery-2"></i>A propos 2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown dropdown-with-icon-style02">
+                                        <a href="{{ route('accueil') }}/#" class="nav-link">Services</a>
+                                        <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a href="{{ route('accueil') }}/#"><i class="line-icon-Medal-2"></i>Business planning</a></li>
+                                            <li><a href="{{ route('accueil') }}/#"><i class="line-icon-Archery-2"></i>Market research</a></li>
+                                            <li><a href="{{ route('accueil') }}/#"><i class="line-icon-Financial"></i>Business consulting</a></li>
+                                            <li><a href="{{ route('accueil') }}/#"><i class="line-icon-Money-Bag"></i>Audience analysis</a></li>
                                         </ul>
                                     </li>
                                     <!-- <li class="nav-item"><a href="demo-corporate-customer-stories.html" class="nav-link">Testimonials</a></li>
                                     <li class="nav-item"><a href="demo-corporate-pricing.html" class="nav-link">Pricing</a></li>-->
-
-                                    <li class="nav-item"><a href="{{ route('blogs') }}" class="nav-link">Blog</a></li>
+                                    <li class="nav-item dropdown dropdown-with-icon-style02">
+                                        <a href="{{ route('accueil') }}/#" class="nav-link">Blogs</a>
+                                        <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a href="{{ route('blogs.index') }}"><i class="line-icon-Medal-2"></i>Blog</a></li>
+                                            <li><a href="{{ route('blogs-uno') }}"><i class="line-icon-Archery-2"></i>Blog"</a></li>
+                                        </ul>
+                                    </li>
                                     <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                                 </ul>
                             </div>
@@ -79,25 +91,27 @@
                             <div class="col-auto text-end md-pe-0">
                                 <div class="header-icon">
                                     <div class="header-search-icon icon">
-                                        <a href="{{ route('resultat') }}" class="search-form-icon header-search-form">
+                                        <a href="{{ route('accueil') }}/#" class="search-form-icon header-search-form">
                                             <i class="feather icon-feather-search"></i>
                                         </a>
                                         <!-- start search input -->
                                         <div class="search-form-wrapper">
                                             <button title="Close" type="button" class="search-close">×</button>
-                                            <div class="search-form-box">
-                                                <h2 class="text-dark-gray text-center fw-600 mb-4 ls-minus-1px">Quel service cherchez-vous ?</h2>
-                                                <form action="{{ route('resultat') }}" method="GET">
-                                                    <input class="search-input" id="search-form-input5e219ef164995" placeholder="Entrez les mots clés..." name="query" type="text" autocomplete="off">
-                                                    <button type="submit" class="search-button">
-                                                        <i class="feather icon-feather-search" aria-hidden="true"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
+                                            <form id="search-form" role="search" method="get" class="search-form text-left"  action="{{ route('resultat') }}" >
+                                                <div class="search-form-box">
+                                                    <h2 class="text-dark-gray text-center fw-600 mb-4 ls-minus-1px">Quel service cherchez-vous ?</h2>
+                                                    
+                                                        <input class="search-input" id="search-form-input5e219ef164995" placeholder="Entrez les mots clés..." name="query" type="text" autocomplete="off">
+                                                        <button type="submit" class="search-button">
+                                                            <i class="feather icon-feather-search" aria-hidden="true"></i>
+                                                        </button>
+                                                    
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="header-button ms-20px d-none d-xl-inline-block">
-                                        <a href="" class="btn btn-rounded btn-transparent-light-gray border-1 btn-medium btn-switch-text text-transform-none">
+                                        <a href=" {{ route('contact') }}#formulaire" class="btn btn-rounded btn-transparent-light-gray border-1 btn-medium btn-switch-text text-transform-none">
                                             <span>
                                                 <span class="btn-double-text fw-600" data-text="Free consultation">Consultation gratuite</span>
                                                 <span><i class="fa-regular fa-envelope"></i></span>
@@ -153,7 +167,6 @@
                             <ul>
                                 <li><a href="">Qui sommes-nous</a></li>
                                 <li><a href="">Nos services</a><div class="bg-dark-gray fw-600 text-white lh-22 text-uppercase border-radius-30px ps-10px pe-10px fs-10 ms-10px d-inline-block align-middle">Hot</div></li>
-                                <li><a href="{{ route('blogs') }}">Blogs</a></li>
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
                         </div>
@@ -186,7 +199,9 @@
                             </div>
                         </div>
                         <!-- end footer column -->
+                     
                     </div>
+                    
                     <div class="row justify-content-center align-items-center pt-2">
                         <!-- start divider -->
                         <div class="col-12">
@@ -199,9 +214,9 @@
                         <!-- start footer menu -->
                         <div class="col-lg-7 pt-35px pb-35px md-pt-25px md-pb-5px order-1 order-lg-2 text-center text-lg-end">
                             <ul class="footer-navbar sm-lh-normal">
-                                <li><a href="#" class="nav-link">Privacy policy</a></li>
-                                <li><a href="#" class="nav-link">Terms and conditions</a></li>
-                                <li><a href="#" class="nav-link">Copyright</a></li>
+                                <li><a href="{{ route('accueil') }}/#" class="nav-link">Privacy policy</a></li>
+                                <li><a href="{{ route('accueil') }}/#" class="nav-link">Terms and conditions</a></li>
+                                <li><a href="{{ route('accueil') }}/#" class="nav-link">Copyright</a></li>
                             </ul>
                         </div>
                         <!-- end footer menu -->
@@ -211,7 +226,7 @@
             <!-- end footer -->
             <!-- start scroll progress -->
             <div class="scroll-progress d-none d-xxl-block">
-                <a href="#" class="scroll-top" aria-label="scroll">
+                <a href="{{ route('accueil') }}/#" class="scroll-top" aria-label="scroll">
                     <span class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span>
                 </a>
             </div>

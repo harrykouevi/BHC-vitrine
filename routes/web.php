@@ -1,14 +1,21 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\CommentaireController;
 use App\Jobs\ProcessImage;
 use Illuminate\Support\Facades\Route;
-use Intervention\Image\Laravel\Facades\Image;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Http\Controllers\SearchController;
+// use Intervention\Image\Laravel\Facades\Image;
+
+// use App\Models\Article;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail; // Make sure to import your Mailable class
+use App\Models\commentaire;
 use App\Services\PostService;
+// use App\Services\PostService;
 use Google\Client;
 use Google\Service\Gmail;
 use Illuminate\Support\Facades\Auth;
@@ -72,6 +79,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'is_admin'])->group(
 
 
 // Routes pour les blogs
+Route::get('/formulaire', function () {
+    return view('formulaire');
+})->name('formulaire') ;
+
 Route::get('/blogs', function () {
     return view('blog');
 })->name('blogs.index');
@@ -126,8 +137,8 @@ Route::post('/contact-up', function (Request $request) {
     $validatedData = $request->validate([
         'name' => 'required|max:255',
         'email' => 'required|email',
-        'phone' => 'required|max:15',
-        'subject' => 'required|max:255',
+        'phone' => 'required|max:15', // Add validation for phone number
+        'suject' => 'required|max:255', // Add validation for suject
         'message' => 'required|max:1000',
     ]);
 
@@ -167,30 +178,30 @@ Route::post('/contact-up', function (Request $request) {
 })->name('send-message');
 
 
-Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    // Afficher la liste des articles
-    Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
+// Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+//     // Afficher la liste des articles
+//     Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
 
-    // Afficher le formulaire pour créer un nouvel article
-    Route::get('blog/create', [BlogController::class, 'create'])->name('blog.create');
+//     // Afficher le formulaire pour créer un nouvel article
+//     Route::get('blog/create', [BlogController::class, 'create'])->name('blog.create');
 
-    // Enregistrer un nouvel article
-    Route::post('blog', [BlogController::class, 'store'])->name('blog.store');
+//     // Enregistrer un nouvel article
+//     Route::post('blog', [BlogController::class, 'store'])->name('blog.store');
 
-    // Afficher le formulaire pour éditer un article
-    Route::get('blog/{blog}/edit', [BlogController::class, 'edit'])->name('blog.edit');
+//     // Afficher le formulaire pour éditer un article
+//     Route::get('blog/{blog}/edit', [BlogController::class, 'edit'])->name('blog.edit');
 
-    // Mettre à jour un article existant
-    Route::put('blog/{blog}', [BlogController::class, 'update'])->name('blog.update');
+//     // Mettre à jour un article existant
+//     Route::put('blog/{blog}', [BlogController::class, 'update'])->name('blog.update');
 
-    // Supprimer un article
-    Route::delete('blog/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
-});
+//     // Supprimer un article
+//     Route::delete('blog/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
+// });
 // Route pour afficher la liste des blogs
-Route::get('/blogs', [BlogController::class, 'toutLesBlogs'])->name('blogs');
+Route::get('/blogs-uno', [BlogController::class, 'toutLesBlogs'])->name('blogs-uno');
 
 // Route pour afficher un article spécifique
-Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blogs-uno/{id}', [BlogController::class, 'show'])->name('blogs-uno.show');
 
 
 
@@ -203,4 +214,12 @@ Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 |--------------------------------------------------------------------------|
 */
 require __DIR__ . '/admin.php';
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+// Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+
+Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
+
+
 
