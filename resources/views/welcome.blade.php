@@ -583,8 +583,7 @@
                         <!-- end beige text layer -->
                     </li>
                 </ul>
-                <div class="tp-bannertimer"
-                     style="height: 10px; background-color: rgba(0, 0, 0, 0.10); z-index: 98"></div>
+                <div class="tp-bannertimer" style="height: 10px; background-color: rgba(0, 0, 0, 0.10); z-index: 98"></div>
             </div>
         </div>
     </section>

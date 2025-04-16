@@ -39,7 +39,7 @@
                 <nav class="navbar navbar-expand-lg header-light bg-white disable-fixed">
                     <div class="container-fluid">
                         <div class="col-auto col-xl-3 col-lg-2 me-lg-0 me-auto">
-                            <a class="navbar-brand_" href="{{url ('/')}}" style="padding: 11px 0 !important;">
+                            <a class="navbar-brand_" href="" style="padding: 11px 0 !important;">
                                 <img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/1732619577887-file.png') }}" alt="" class="default-logo" style="width: 220px !important;">
                                 {{-- <img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/1732619577887-file.png') }}" alt="" class="alt-logo">
                                 <img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/1732619577887-file.png') }}" alt="" class="mobile-logo"> --}}
@@ -148,7 +148,7 @@
                     <div class="row justify-content-center pt-6 sm-pt-40px">
                         <!-- start footer column -->
                         <div class="col-6 col-xl-3 col-lg-12 col-sm-6 last-paragraph-no-margin text-xl-start text-lg-center order-sm-1 lg-mb-50px sm-mb-30px">
-                            <a href="{{'/'}}" class="footer-log mb-15px d-inline-block"><img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/1732619577887-file.png') }}" alt=""></a>
+                            <a href="#" class="footer-log mb-15px d-inline-block"><img src="{{ asset('images/1732619577887-file.png') }}" data-at2x="{{ asset('images/1732619577887-file.png') }}" alt=""></a>
                             <p class="lh-30 w-90 xl-w-100 mx-lg-auto mx-xl-0">Ensemble, passons de l’idée à une entreprise innovante pour un réel impact pour nous et nos communautés.</p>
                             <div class="elements-social social-icon-style-02 mt-20px xs-mt-15px">
                                 <ul class="medium-icon dark">
