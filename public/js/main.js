@@ -348,7 +348,7 @@
                 aHref = _this.attr('href');
         if (aHref === pgurl || aHref === pgurl + '.html') {
             _this.parent().addClass('active');
-            _this.parents('li.dropdown').addClass('active');
+            // _this.parents('li.dropdown').addClass('active');
             _this.parents('li.menu-item').addClass('active');
         }
     });

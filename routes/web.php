@@ -44,6 +44,10 @@ Route::get('/contacts', function () {
     return view('contactus');
 })->name('contact') ;
 
+Route::get('/about', function () {
+    return view('aboutus');
+})->name('about') ;
+
 Route::get('/blogs', function () {
     return view('blog');
 })->name('blogs.index') ;
