@@ -1,0 +1,115 @@
+/* global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto', sans-serif;
+    color: #222;
+    font-weight: 700;
+}
+
+/* Page title section */
+.page-title-big-typography {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    padding: 150px 0;
+    text-align: center;
+    color: white;
+}
+
+.page-title-big-typography h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.page-title-big-typography h2 {
+    font-size: 2rem;
+    margin-top: 10px;
+    font-weight: 500;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.page-title-big-typography .w-30px {
+    background-color: #f7c500;
+    height: 2px;
+    display: inline-block;
+}
+
+/* Section Styling */
+section {
+    padding: 60px 0;
+}
+
+/* Styling the content */
+#pro {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: black;
+    margin-top: 20px;
+}
+
+#pro br {
+    margin-bottom: 10px;
+}
+
+/* Social media section */
+.elements-social {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+}
+
+.elements-social li {
+    display: inline-block;
+}
+
+.elements-social .facebook, .youtube, .tiktok, .linkedin {
+    font-size: 2rem;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+.elements-social .facebook:hover {
+    color: #3b5998;
+}
+
+.elements-social .youtube:hover {
+    color: #ff0000;
+}
+
+.elements-social .tiktok:hover {
+    color: #69c9d0;
+}
+
+.elements-social .linkedin:hover {
+    color: #0e76a8;
+}
+
+/* Section after the social media links */
+.bg-dark-gray {
+    background-color: #333;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.bg-dark-gray h6 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
