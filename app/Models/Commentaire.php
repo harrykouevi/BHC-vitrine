@@ -15,4 +15,7 @@ class Commentaire extends Model
     {
         return $this->belongsTo(Article::class);
     }
+
+    
+    // protected $fillable = ['name', 'email', 'content'];
 }

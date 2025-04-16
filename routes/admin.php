@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CommentaireController;
 
 
@@ -23,6 +24,10 @@ Route::middleware(['auth'])->group(function () {
    Route::get('/admin/commentaires', [CommentaireController::class, 'index'])->name('admin.commentaires');
    Route::post('/admin/commentaires/{id}/approuver', [CommentaireController::class, 'approuver'])->name('admin.commentaires.approuver');
    Route::post('/admin/commentaires/{id}/rejeter', [CommentaireController::class, 'rejeter'])->name('admin.commentaires.rejeter');
+
+   //affichage et gestion des blogs
+    Route::resource('blogs', BlogController ::class);
+
 
 });
 

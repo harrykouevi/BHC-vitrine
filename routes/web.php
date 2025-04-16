@@ -9,6 +9,7 @@ use App\Models\Article;
 use App\Http\Controllers\SearchController;
 // use Intervention\Image\Laravel\Facades\Image;
 
+
 // use App\Models\Article;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Mail;
@@ -20,6 +21,9 @@ use Google\Client;
 use Google\Service\Gmail;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BlogController;
+
+use App\Http\Controllers\SubscriptionController;
+
 
 
 /*
@@ -44,10 +48,22 @@ Route::get('/', function () {
     return view('welcome', ['articles' => $posts]);
 })->name('accueil');
 
-// Route de la page "À propos"
+
+                        
+
+
 Route::get('/a-propos', function () {
+    return view('aboutus');
+})->name('a-propos') ;
+
+// Route de la page "À propos"
+Route::get('/a-p-ropos', function () {
     return view('a-propos');
-})->name('A propos');
+})->name('apropos');
+
+Route::get('/about', function () {
+    return view('aboutus');
+})->name('about') ;
 
 // Routes pour la recherche
 // Route GET pour afficher les résultats de recherche
@@ -64,18 +80,8 @@ Route::get('/contacts', function () {
     return view('contactus');
 })->name('contact');
 
-Route::get('/about', function () {
-    return view('aboutus');
-})->name('about') ;
 
 
-//Route pour les crud
-
-Route::resource('blogs', BlogController::class);
-//affichage et gestion des blogs
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'is_admin'])->group(function () {
-    Route::resource('blogs', BlogController::class);
-});
 
 
 // Routes pour les blogs
@@ -99,7 +105,36 @@ Route::get('/blogs/{id}', function ($id) {
     });
 
     return view('blog-single', ['article' => $post, 'articles' => $posts]);
-})->name('blogs.show');
+})->name('blogs.show-uno');
+
+// Route pour afficher la liste des blogs
+Route::get('/blogs-uno', [BlogController::class, 'toutLesBlogs'])->name('blogs-uno');
+
+// Route pour afficher un article spécifique
+Route::get('/blogs-uno/{id}', [BlogController::class, 'show'])->name('blogs-uno.show');
+
+Route::post('/blogs.show', [CommentaireController::class, 'store'])->name('commentaire.store');
+
+Route::get('/blogs.show', function () {
+    
+    $commentaires = Commentaire::latest()->take(4)->get();;
+    return view('blog-single', compact('commentaires')  );
+})->name('blogs.show') ;
+
+
+
+Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe');
+
+// Route::get('/blogs/single', function () {
+//     // // $post = new stdClass();
+//     // if (is_numeric($id)) {
+//     //     $post = ( new Postservice ())->getPost($id);
+//     // }
+//     // $featuredPosts = ( new Postservice ())->getFeaturedPosts();
+//     // $posts = $featuredPosts->map(function($featuredPost){  return $featuredPost->post ; }) ;
+
+//     return view('blog-single');
+// })->name('blogs.show');
 
 // Route pour la page de téléchargement
 Route::get('/A7d3F9kL2qX1', function () {
@@ -197,13 +232,6 @@ Route::post('/contact-up', function (Request $request) {
 //     // Supprimer un article
 //     Route::delete('blog/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
 // });
-// Route pour afficher la liste des blogs
-Route::get('/blogs-uno', [BlogController::class, 'toutLesBlogs'])->name('blogs-uno');
-
-// Route pour afficher un article spécifique
-Route::get('/blogs-uno/{id}', [BlogController::class, 'show'])->name('blogs-uno.show');
-
-
 
 
 /*
